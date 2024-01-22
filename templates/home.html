@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="{% static 'nav.css' %}" >
+    <link rel="stylesheet" href="{% static 'button.css' %}" >
+
+</head>
+<div class="topnav">
+    <a href="/home">{{user}}</a>
+    <a class="active" href="/home">Home</a>
+    <a href="{%url 'predict' %}" >Prediction</a>
+    <a href="/">Logout</a>
+  </div>
+    <hr>
+    <br>
+<div class="container"> 
+
+    <form class="well form-horizontal" action="{% url 'store' %}" method="post"  id="contact_form">
+    {%csrf_token%}  
+<fieldset>
+
+<section class="sec" action="{%url 'store'%}">
+    <div class="row">
+      <!-- First Column -->
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center ri">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">CustomerId</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="cid" placeholder="CustomerId" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">CreditScore</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="cs" placeholder="CreditScore" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Gender</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="gender" placeholder="Gender" class="form-control" type="Text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Tenure</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="tenure" placeholder="Tenure" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">NumOfProducts</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="product" placeholder="NumOfProducts" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">IsActiveMember</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="active" placeholder="IsActiveMember 0-No, 1-Yes" class="form-control" type="number">
+          </div>
+        </div>
+        <!-- Add other inputs for the first column here -->
+      </div>
+      
+      <!-- Second Column -->
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center lf">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Name</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="name" placeholder="Name" class="form-control" type="Text">
+          </div>
+          <div class="form-group">
+              <label class="control-label" style="color: white; font-weight: bolder;">Geography</label>  
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="geo" placeholder="Geography" class="form-control" type="Text">
+              </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Age</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="age" placeholder="Age" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Balance</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="balance" placeholder="Balance" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">Has Credit Card</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="cc" placeholder="Has Credit Card 0-No,1-Yes" class="form-control" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" style="color: white; font-weight: bolder;">EstimatedSalary</label>  
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="salary" placeholder="EstimatedSalary" class="form-control" type="number">
+          </div>
+        </div>
+        <!-- Add other inputs for the second column here -->
+      </div>
+      
+    </div>
+    
+  </section>
+<!-- Text input-->
+
+<!-- Success message -->
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-warning" >Submit<span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+{% if messages %}
+            {% for result in messages%}
+            <b style="color:rgb(0, 0, 0);">{{result}}</b> 
+            {% endfor %}
+{% endif %}
+
+</fieldset>
+</form>
+</div>
+    </div><!-- /.container -->
+</body>

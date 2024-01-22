@@ -1,0 +1,81 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Selection</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    .bg{
+      background-repeat: no-repeat;
+      background-size: 1800px 900px;
+      background-position: top;
+   
+
+  
+  }
+  .content-table {
+    border-collapse: collapse;
+    margin: 50px 0;
+    font-size: 50px;
+    min-width: 200px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(117, 9, 9, 0.9);
+    text-align: center; 
+}
+
+.one {
+    background-color: #18cd70;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 5px 40px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 1px solid #04AA6D;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #04AA6D;
+}
+  </style>
+<body class="bg" style="background-image: url('{%static 'img/2.jpg' %}');">
+    <center><br><br><br><br><br><br>
+    <table border="1" style="height:100px;" class="content-table">
+        <tr class=" one">
+            <th>Crop Recommeded</th>
+        </tr>
+        <tr>
+            <td style="text-transform: uppercase;">{{crr}}</td>
+        </tr>
+        
+    </table>
+    <form action="{% url 'home' %}">
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning" >Go Back<span class="glyphicon glyphicon-send"></span></button>
+        </div>
+      </div>
+    </form>
+</center>
+</body>
+</html>
