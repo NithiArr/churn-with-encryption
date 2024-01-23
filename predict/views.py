@@ -53,7 +53,8 @@ print(iv)
 
 def predict(request):
     if request.method == 'POST':
-        id = encrypt((request.POST.get('sno')),key,iv)
+        id1 = request.POST.get('sno')
+        id = encrypt(id1,key,iv)
         print(id)
         cus = customer.objects.all()
         if id:
@@ -82,7 +83,11 @@ def predict(request):
              })
             cat_boost = pickle.load(open('cat_boost.sav','rb'))
             res = cat_boost.predict(x)
-            return render(request,'predict.html',{'details':res})
+            if res == 1:
+                ress = ['High Chance of Churn']
+            else:
+                ress = ['Low Chance of Churn']
+            return render(request,'predict.html',{'details':ress,'id':id1})
         else:
             str='Pls enter valid ID'
             return render(request,'predict.html',{'cont':str})

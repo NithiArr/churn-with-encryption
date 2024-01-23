@@ -32,19 +32,31 @@
         <br>
         <section class="sec">
         <div>
-            <h3 class="head">PREDICT HERE</h3>
+            <h3 class="head" style="float:center;">PREDICT HERE</h3>
+            <br>
+            <br>
             <form method="POST" action="{% url 'predict' %}" class="search" >
                 {%csrf_token%}
                 <label style="font-size: 20px;">CustomerId:</label>
                 <input class="xt" type="text" name="sno">  
-                <button class="button button4" type="submit">Search</button>
+                <button class="btn btn-warning" type="submit">Search</button>
             </form>
             <br>
             <br>
             <br>
             <br>
             {% for cus in details%}
-                {{cus}}
+            <table class="content-table" style="float: center; margin-left:30px">
+                <tr class="one" style="color: black;">
+                    <th>CustomerId</th>
+                    <th>Prediction</th>
+
+                </tr>
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{cus}}</td>
+                </tr>
+            </table>
             {%endfor%}
         </div>
         </section>
