@@ -5,11 +5,7 @@
   font-weight: bolder;
 
 }
-.topnav::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
 
 .topnav {
     background-color: #333;

@@ -33,7 +33,6 @@ def encrypt(a, key, iv):
             # Encrypt the data
     encrypted_value = encryptor.update(value_bytes) + encryptor.finalize()
     b = base64.b64encode(encrypted_value).decode()
-    print(b)
     dec =base64.b64encode(b.encode()).decode()
     decoded_bytes = base64.b64decode(dec.encode())
     return int.from_bytes(decoded_bytes, byteorder='big')
